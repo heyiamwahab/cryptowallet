@@ -13,6 +13,9 @@ class _HomeviewState extends State<Homeview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+      ),
       body: Container(
         decoration: BoxDecoration(color: Colors.white),
         width: MediaQuery.of(context).size.width,
@@ -33,11 +36,29 @@ class _HomeviewState extends State<Homeview> {
             return ListView(
               children: snapshot.data.docs.map((document) {
                 return Container(
+                  padding:
+                      EdgeInsets.only(top: 10, bottom: 10, left: 5, right: 2),
+                  margin: EdgeInsets.only(top: 15, left: 5, right: 5),
+                  decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(5)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('Coin Name:${document.id}'),
-                      Text('Amount Owned:${document.data()['Amount']}')
+                      Text(
+                        'Coin Name:${document.id}',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
+                      Text(
+                        'Amount Owned:${document.data()['Amount']}',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16),
+                      ),
                     ],
                   ),
                 );
